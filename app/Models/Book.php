@@ -29,7 +29,7 @@ class Book extends Model
     public function users()
     {
         return $this->belongsToMany(User::class, 'book_user')
-            ->withPivot('reting')
+            ->withPivot('rating')
             ->withTimestamps();
     }
 }
