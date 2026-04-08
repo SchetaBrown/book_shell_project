@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="max-w-4xl mx-auto">
-        <div class="flex justify-between items-start mb-6">
+        <div class="flex justify-between items-start mb-6 flex-wrap">
             <div>
                 <h1 class="text-3xl font-bold text-gray-800">{{ $category->title }}</h1>
                 @if ($category->description)

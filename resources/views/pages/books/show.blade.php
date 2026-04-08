@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="max-w-4xl mx-auto">
-        <div class="flex justify-between items-start mb-6">
+        <div class="flex justify-between items-start mb-6 flex-wrap">
             <h1 class="text-3xl font-bold text-gray-800">{{ $book->title }}</h1>
             <div class="flex space-x-2">
                 @auth
