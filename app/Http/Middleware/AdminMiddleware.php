@@ -18,7 +18,6 @@ class AdminMiddleware
             return redirect()->route('login.create')->with('warning', 'Войдите в систему');
         }
 
-
         $auth_user = Auth::user()->with(['role'])->where('email', auth()->user()->email)->first();
         if ($auth_user->role->slug !== $admin_role->slug) {
             return redirect()->back()->with('warning', 'Повысьте уровень доступа');

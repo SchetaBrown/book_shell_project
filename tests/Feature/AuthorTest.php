@@ -37,7 +37,6 @@ class AuthorTest extends TestCase
         ]);
     }
 
-    /** @test */
     public function test_anyone_can_view_authors_list()
     {
         Author::create([
@@ -50,10 +49,9 @@ class AuthorTest extends TestCase
 
         $response = $this->get(route('authors.index'));
 
-        $response->assertStatus(302);
+        $response->assertStatus(200);
     }
 
-    /** @test */
     public function test_anyone_can_view_single_author()
     {
         $author = Author::create([
@@ -66,10 +64,9 @@ class AuthorTest extends TestCase
 
         $response = $this->get(route('authors.show', $author));
 
-        $response->assertStatus(302);
+        $response->assertStatus(200);
     }
 
-    /** @test */
     public function test_admin_can_create_author()
     {
         $this->actingAs($this->admin);
@@ -88,7 +85,6 @@ class AuthorTest extends TestCase
         $this->assertDatabaseHas('authors', ['surname' => 'Гоголь']);
     }
 
-    /** @test */
     public function test_regular_user_cannot_create_author()
     {
         $this->actingAs($this->user);
@@ -98,7 +94,6 @@ class AuthorTest extends TestCase
         $response->assertStatus(302);
     }
 
-    /** @test */
     public function test_admin_can_edit_author()
     {
         $this->actingAs($this->admin);
@@ -123,7 +118,6 @@ class AuthorTest extends TestCase
         $this->assertDatabaseHas('authors', ['biography' => 'Великий русский писатель и драматург.']);
     }
 
-    /** @test */
     public function test_admin_can_delete_author()
     {
         $this->actingAs($this->admin);

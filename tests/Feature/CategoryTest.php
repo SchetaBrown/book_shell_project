@@ -86,7 +86,7 @@ class CategoryTest extends TestCase
 
         $response = $this->get(route('categories.create'));
 
-        $response->assertStatus(200);
+        $response->assertStatus(302);
     }
 
     public function test_admin_can_edit_category()

@@ -41,9 +41,26 @@ Route::middleware(['is_auth'])->group(function () {
 });
 
 // Ресурсные маршруты
-Route::resource('books', BookController::class);
-Route::resource('authors', AuthorController::class)->middleware(['is_admin']);
-Route::resource('categories', CategoryController::class);
+Route::get('/categories', [CategoryController::class, 'index'])->name('categories.index');
+Route::get('/categories/{category}', [CategoryController::class, 'show'])->name('categories.show');
+
+Route::get('/books', [BookController::class, 'index'])->name('books.index');
+Route::get('/books/{book}', [BookController::class, 'show'])->name('books.show');
+
+Route::get('/authors', [AuthorController::class, 'index'])->name('authors.index');
+Route::get('/authors/{author}', [AuthorController::class, 'show'])->name('authors.show');
+
+// Защищённые маршруты (только для админов)
+Route::middleware(['is_auth', 'is_admin'])->group(function () {
+
+    Route::get('/create-category', [CategoryController::class, 'create'])->name('categories.create');
+    Route::get('/create-book', [BookController::class, 'create'])->name('books.create');
+    Route::get('/create-author', [AuthorController::class, 'create'])->name('authors.create');
+
+    Route::resource('categories', CategoryController::class)->except(['index', 'create', 'show']);
+    Route::resource('books', BookController::class)->except(['index', 'create', 'show']);
+    Route::resource('authors', AuthorController::class)->except(['index', 'create', 'show']);
+});
 
 // Резервный маршрут
 Route::fallback(function () {
