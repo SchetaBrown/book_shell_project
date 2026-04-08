@@ -26,7 +26,7 @@
                         </form>
                     @endif
                 @else
-                    <a href="{{ route('login') }}"
+                    <a href="{{ route('login.create') }}"
                         class="bg-gray-600 text-white px-4 py-2 rounded-lg hover:bg-gray-700 transition flex items-center gap-2">
                         🔒 Войдите, чтобы добавить
                     </a>
