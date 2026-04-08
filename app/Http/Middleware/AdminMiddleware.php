@@ -13,9 +13,14 @@ class AdminMiddleware
     public function handle(Request $request, Closure $next): Response
     {
         $admin_role = Role::where('slug', 'admin')->first();
-        $auth_user = Auth::user()->with(['role']);
 
-        if ($auth_user->role->title !== $admin_role->title) {
+        if (!Auth::check()) {
+            return redirect()->route('login.create')->with('warning', 'Войдите в систему');
+        }
+
+
+        $auth_user = Auth::user()->with(['role'])->where('email', auth()->user()->email)->first();
+        if ($auth_user->role->slug !== $admin_role->slug) {
             return redirect()->back()->with('warning', 'Повысьте уровень доступа');
         }
 

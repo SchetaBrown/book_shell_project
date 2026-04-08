@@ -27,7 +27,7 @@ class HomeController extends Controller
         $totalBooks = Book::count();
         $totalAuthors = Author::count();
 
-        return view('index', compact(
+        return view('pages.index', compact(
             'latestBooks',
             'popularAuthors',
             'categories',

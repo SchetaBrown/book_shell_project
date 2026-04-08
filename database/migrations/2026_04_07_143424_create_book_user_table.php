@@ -11,8 +11,6 @@ return new class extends Migration
         Schema::create('book_user', function (Blueprint $table) {
             $table->id();
 
-            $table->integer('rating');
-
             $table
                 ->foreignId('user_id')
                 ->constrained()

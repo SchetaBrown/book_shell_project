@@ -10,13 +10,13 @@ class UserSeeder extends Seeder
     private array $users = [
         [
             'name' => 'Ivan Ivanov',
-            'email' => 'ivan@example.com',
+            'email' => 'ivan@gmail.com',
             'password' => 'password',
             'role_id' => 1,
         ],
         [
             'name' => 'Admin',
-            'email' => 'admin@example.com',
+            'email' => 'admin@gmail.com',
             'password' => 'password',
             'role_id' => 2,
         ],

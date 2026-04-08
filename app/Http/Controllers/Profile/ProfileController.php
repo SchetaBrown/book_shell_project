@@ -15,13 +15,13 @@ class ProfileController extends Controller
         $user = Auth::user();
         $userBooks = $user->books()->with('author')->get();
 
-        return view('profile.show', compact('user', 'userBooks'));
+        return view('pages.profile.show', compact('user', 'userBooks'));
     }
 
     public function edit()
     {
         $user = Auth::user();
-        return view('profile.edit', compact('user'));
+        return view('pages.profile.edit', compact('user'));
     }
 
     public function update(Request $request)
@@ -61,17 +61,15 @@ class ProfileController extends Controller
         return redirect()->route('profile.show')->with('success', 'Пароль обновлён');
     }
 
-    public function addBookToLibrary(Request $request, Book $book)
+    public function addBookToLibrary(Book $book)
     {
         $user = Auth::user();
 
-        $request->validate([
-            'rating' => 'nullable|integer|min:1|max:5',
-        ]);
+        if ($user->books()->where('book_id', $book->id)->exists()) {
+            return back()->with('error', 'Эта книга уже в вашей библиотеке');
+        }
 
-        $user->books()->attach($book->id, [
-            'rating' => $request->rating,
-        ]);
+        $user->books()->attach($book->id);
 
         return back()->with('success', 'Книга добавлена в библиотеку');
     }

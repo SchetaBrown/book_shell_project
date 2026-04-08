@@ -27,7 +27,16 @@ class User extends Authenticatable
     public function books()
     {
         return $this->belongsToMany(Book::class, 'book_user')
-            ->withPivot('rating')
             ->withTimestamps();
+    }
+
+    public function isAdmin()
+    {
+        return $this->role->slug === 'admin';
+    }
+
+    public function isUser()
+    {
+        return $this->role->slug === 'user';
     }
 }

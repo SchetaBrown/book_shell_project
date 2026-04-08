@@ -35,12 +35,17 @@ Route::middleware(['is_auth'])->group(function () {
         Route::get('/edit', 'edit')->name('edit');
         Route::put('/update', 'update')->name('update');
         Route::put('/update-password', 'updatePassword')->name('update-password');
-        Route::post('/books/{book}/add', 'addBookToLibrary')->name('add-book');
+        Route::post('/books/{book}/store', 'addBookToLibrary')->name('add-book');
         Route::delete('/books/{book}/remove', 'removeBookFromLibrary')->name('remove-book');
     });
 });
 
 // Ресурсные маршруты
 Route::resource('books', BookController::class);
-Route::resource('authors', AuthorController::class);
+Route::resource('authors', AuthorController::class)->middleware(['is_admin']);
 Route::resource('categories', CategoryController::class);
+
+// Резервный маршрут
+Route::fallback(function () {
+    return redirect()->route('index')->with('error', 'Возникла непредвиденная ошибка');
+});

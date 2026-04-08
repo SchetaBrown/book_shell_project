@@ -14,7 +14,7 @@ class LoginController extends Controller
         return view('pages.auth.login');
     }
 
-    public function login(AuthUserRequest $request)
+    public function store(AuthUserRequest $request)
     {
         $credentials = $request->validated();
 

@@ -12,12 +12,12 @@ class AuthorController extends Controller
     public function index()
     {
         $authors = Author::withCount('books')->latest()->paginate(20);
-        return view('authors.index', compact('authors'));
+        return view('pages.authors.index', compact('authors'));
     }
 
     public function create()
     {
-        return view('authors.create');
+        return view('pages.authors.create');
     }
 
     public function store(StoreAuthorRequest $request)
@@ -32,12 +32,12 @@ class AuthorController extends Controller
     public function show(Author $author)
     {
         $author->with(['books.category'])->get();
-        return view('authors.show', compact('author'));
+        return view('pages.authors.show', compact('author'));
     }
 
     public function edit(Author $author)
     {
-        return view('authors.edit', compact('author'));
+        return view('pages.authors.edit', compact('author'));
     }
 
     public function update(UpdateAuthorRequest $request, Author $author)
