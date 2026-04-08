@@ -35,8 +35,8 @@ Route::middleware(['is_auth'])->group(function () {
         Route::get('/edit', 'edit')->name('edit');
         Route::put('/update', 'update')->name('update');
         Route::put('/update-password', 'updatePassword')->name('update-password');
-        Route::post('/books/{book}/store', 'addBookToLibrary')->name('add-book');
-        Route::delete('/books/{book}/remove', 'removeBookFromLibrary')->name('remove-book');
+        Route::post('/books/{book}/store', 'store')->name('store');
+        Route::delete('/books/{book}/remove', 'destroy')->name('destroy');
     });
 });
 

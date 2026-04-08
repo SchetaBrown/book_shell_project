@@ -62,7 +62,7 @@
                                                 ✓ В библиотеке
                                             </span>
                                         @else
-                                            <form method="POST" action="{{ route('profile.add-book', $book) }}"
+                                            <form method="POST" action="{{ route('profile.store', $book) }}"
                                                 class="inline">
                                                 @csrf
                                                 <button type="submit"

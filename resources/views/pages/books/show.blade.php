@@ -17,7 +17,7 @@
                             ✓ В моей библиотеке
                         </span>
                     @else
-                        <form method="POST" action="{{ route('profile.add-book', $book) }}">
+                        <form method="POST" action="{{ route('profile.store', $book) }}">
                             @csrf
                             <button type="submit"
                                 class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition flex items-center gap-2">

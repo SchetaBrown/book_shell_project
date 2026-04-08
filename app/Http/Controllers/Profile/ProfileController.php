@@ -61,7 +61,7 @@ class ProfileController extends Controller
         return redirect()->route('profile.show')->with('success', 'Пароль обновлён');
     }
 
-    public function addBookToLibrary(Book $book)
+    public function store(Book $book)
     {
         $user = Auth::user();
 
@@ -74,7 +74,7 @@ class ProfileController extends Controller
         return back()->with('success', 'Книга добавлена в библиотеку');
     }
 
-    public function removeBookFromLibrary(Book $book)
+    public function destroy(Book $book)
     {
         Auth::user()->books()->detach($book->id);
         return back()->with('success', 'Книга удалена из библиотеки');
