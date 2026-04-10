@@ -1,12 +1,10 @@
 <header class="bg-white shadow-md">
     <nav class="container mx-auto px-4 py-3">
         <div class="flex justify-between items-center">
-            <!-- Логотип -->
             <a href="{{ route('index') }}" class="text-2xl font-bold text-blue-600 hover:text-blue-700 transition">
                 📚 BookLibrary
             </a>
 
-            <!-- Десктопная навигация (скрывается на мобилках) -->
             <div class="hidden md:flex items-center space-x-6">
                 <a href="{{ route('index') }}" class="text-gray-700 hover:text-blue-600 transition">
                     Главная
@@ -27,7 +25,6 @@
                 </a>
             </div>
 
-            <!-- Десктопный профиль (скрывается на мобилках) -->
             <div class="hidden md:flex items-center space-x-4">
                 @auth
                     <div class="relative">
@@ -67,7 +64,6 @@
                 @endauth
             </div>
 
-            <!-- Мобильная кнопка бургер-меню -->
             <button id="mobileMenuBtn" class="md:hidden text-gray-700 hover:text-blue-600 focus:outline-none">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
@@ -76,7 +72,6 @@
             </button>
         </div>
 
-        <!-- Мобильное меню (скрыто по умолчанию) -->
         <div id="mobileMenu" class="hidden md:hidden mt-4 pt-4 border-t flex flex-col space-y-3">
             <a href="{{ route('index') }}" class="text-gray-700 hover:text-blue-600 transition py-2">
                 Главная

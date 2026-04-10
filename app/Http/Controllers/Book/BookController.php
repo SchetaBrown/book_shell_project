@@ -30,7 +30,6 @@ class BookController extends Controller
 
         $books = $query->latest()->paginate(12)->withQueryString();
 
-        // Данные для фильтров
         $categories = Category::orderBy('title')->get();
         $authors = Author::orderBy('surname')->get();
 

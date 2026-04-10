@@ -71,7 +71,7 @@
 
                                             <p class="text-gray-600 text-sm mt-1">
                                                 Автор: <a href="{{ route('authors.show', $book->author) }}"
-                                                    class="text-blue-500 hover:text-blue-700">{{ $book->author->full_name }}</a>
+                                                    class="text-blue-500 hover:text-blue-700">{{ $book->author->fullName() }}</a>
                                             </p>
 
                                             @if ($book->category)
@@ -79,14 +79,8 @@
                                                     {{ $book->category->title }}</p>
                                             @endif
 
-                                            @if ($book->pivot->notes)
-                                                <div class="mt-2 p-2 bg-gray-100 rounded text-sm text-gray-700">
-                                                    📝 {{ $book->pivot->notes }}
-                                                </div>
-                                            @endif
-
                                             <div class="flex gap-4 mt-3">
-                                                <form method="POST" action="{{ route('profile.remove-book', $book) }}"
+                                                <form method="POST" action="{{ route('profile.destroy', $book) }}"
                                                     class="inline"
                                                     onsubmit="return confirm('Удалить книгу из библиотеки?')">
                                                     @csrf

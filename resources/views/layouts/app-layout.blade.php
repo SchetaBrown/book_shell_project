@@ -7,10 +7,8 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title', 'Библиотека')</title>
 
-    <!-- Tailwind CSS CDN (быстрый вариант) -->
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- Дополнительные стили -->
     <style>
         .active-nav {
             background-color: #3b82f6;

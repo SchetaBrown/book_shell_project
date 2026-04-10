@@ -8,7 +8,6 @@ use Illuminate\Database\Seeder;
 class BookSeeder extends Seeder
 {
     private array $books = [
-        // Толстой (author_id: 1)
         [
             'title' => 'Война и мир',
             'description' => 'Роман-эпопея о жизни русского общества в эпоху Наполеоновских войн.',
@@ -27,8 +26,6 @@ class BookSeeder extends Seeder
             'author_id' => 1,
             'category_id' => 3,
         ],
-
-        // Достоевский (author_id: 2)
         [
             'title' => 'Преступление и наказание',
             'description' => 'Роман о моральных дилеммах и психологии убийцы.',
@@ -56,8 +53,6 @@ class BookSeeder extends Seeder
             'author_id' => 2,
             'category_id' => 3,
         ],
-
-        // Лукьяненко (author_id: 3)
         [
             'title' => 'Ночной Дозор',
             'description' => 'Фантастический роман о противостоянии Света и Тьмы.',
@@ -85,8 +80,6 @@ class BookSeeder extends Seeder
             'author_id' => 3,
             'category_id' => 1,
         ],
-
-        // Оруэлл (author_id: 4)
         [
             'title' => '1984',
             'description' => 'Роман-антиутопия о тоталитарном режиме и потере личности.',
@@ -105,8 +98,6 @@ class BookSeeder extends Seeder
             'author_id' => 4,
             'category_id' => 1,
         ],
-
-        // Булгаков (author_id: 5)
         [
             'title' => 'Мастер и Маргарита',
             'description' => 'Мистический роман о дьяволе, посетившем советскую Москву.',
@@ -134,8 +125,6 @@ class BookSeeder extends Seeder
             'author_id' => 5,
             'category_id' => 1,
         ],
-
-        // Роулинг (author_id: 6)
         [
             'title' => 'Гарри Поттер и Философский камень',
             'description' => 'Первый роман о мальчике-волшебнике Гарри Поттере.',

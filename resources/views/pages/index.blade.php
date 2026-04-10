@@ -52,7 +52,7 @@
                                 </a>
                             </h3>
                             <p class="text-gray-600 text-sm mb-2">
-                                Автор: {{ $book->author->full_name ?? 'Неизвестен' }}
+                                Автор: {{ $book->author->fullName() ?? 'Неизвестен' }}
                             </p>
                             @if ($book->category)
                                 <p class="text-gray-500 text-xs">
