@@ -1,2 +1,7 @@
 User-agent: *
-Disallow:
+Allow: /
+Disallow: /profile
+Disallow: /my-library
+Disallow: /admin
+
+Sitemap: http://127.0.0.1:8000/sitemap.xml

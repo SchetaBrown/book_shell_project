@@ -7,6 +7,7 @@ use App\Http\Controllers\Book\BookController;
 use App\Http\Controllers\Category\CategoryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Profile\ProfileController;
+use App\Http\Controllers\SEO\SitemapController;
 use Illuminate\Support\Facades\Route;
 
 // Главная страница
@@ -66,3 +67,6 @@ Route::middleware(['is_auth', 'is_admin'])->group(function () {
 Route::fallback(function () {
     return redirect()->route('index')->with('error', 'Возникла непредвиденная ошибка');
 });
+
+// Создание sitemap.xml
+Route::get('/sitemap.xml', SitemapController::class)->name('sitemap');

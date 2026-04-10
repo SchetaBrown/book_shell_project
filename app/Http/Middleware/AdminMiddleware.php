@@ -15,8 +15,7 @@ class AdminMiddleware
             return redirect()->route('login.create')->with('warning', 'Войдите в систему');
         }
 
-        $user = Auth::user();
-        if (!$user->isAdmin()) {
+        if (!auth()->user()->isAdmin()) {
             return redirect()->back()->with('warning', 'Повысьте уровень доступа');
         }
 

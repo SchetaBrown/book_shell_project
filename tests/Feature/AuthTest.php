@@ -17,7 +17,6 @@ class AuthTest extends TestCase
     {
         parent::setUp();
 
-        // Создаём роль перед тестами
         $role = Role::create([
             'title' => 'Пользователь',
             'slug' => 'user',
@@ -56,7 +55,6 @@ class AuthTest extends TestCase
         $response->assertSee('Регистрация');
     }
 
-    /** @test */
     public function test_user_can_register_with_valid_data()
     {
         $response = $this->post(route('register.store'), [
@@ -74,7 +72,6 @@ class AuthTest extends TestCase
         ]);
     }
 
-    /** @test */
     public function test_user_cannot_register_with_existing_email()
     {
         $response = $this->post(route('register.store'), [
@@ -87,7 +84,6 @@ class AuthTest extends TestCase
         $response->assertSessionHasErrors('email');
     }
 
-    /** @test */
     public function test_user_can_logout()
     {
         $this->actingAs($this->user);
@@ -98,7 +94,6 @@ class AuthTest extends TestCase
         $this->assertGuest();
     }
 
-    /** @test */
     public function test_authenticated_user_can_view_profile()
     {
         $this->actingAs($this->user);
